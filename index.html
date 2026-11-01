@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Giải bài toán vận tải bằng Góc Tây Bắc, Chi phí nhỏ nhất và MODI.">
+  <title>Transport Solver — Bài toán vận tải</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="site">
+    <header class="header">
+      <div class="logo">▦</div>
+      <div>
+        <h1>Transport Solver</h1>
+        <p>Bài toán vận tải · MODI</p>
+      </div>
+    </header>
+
+    <main>
+      <section id="screen-input">
+        <div class="intro">
+          <p class="eyebrow">BƯỚC 01 · NHẬP DỮ LIỆU</p>
+          <h2>Thiết lập bài toán vận tải</h2>
+          <p>Nhập ma trận chi phí, cung của từng nguồn và cầu của từng đích.</p>
+        </div>
+
+        <div class="panel">
+          <h3>1. Chọn phương pháp lập phương án ban đầu</h3>
+
+          <div class="methods">
+            <label class="method">
+              <input type="radio" name="method" value="northwest" checked>
+              <span>
+                <strong>Góc Tây Bắc</strong>
+                <small>Phân phối từ ô trên cùng bên trái</small>
+              </span>
+            </label>
+
+            <label class="method">
+              <input type="radio" name="method" value="least">
+              <span>
+                <strong>Chi phí nhỏ nhất</strong>
+                <small>Ưu tiên ô có chi phí thấp nhất</small>
+              </span>
+            </label>
+          </div>
+
+          <h3>2. Chọn kích thước</h3>
+
+          <div class="sizes">
+            <div class="size-control">
+              <span>Số nguồn (m)</span>
+              <button type="button" id="m-minus">−</button>
+              <output id="m-value">3</output>
+              <button type="button" id="m-plus">+</button>
+            </div>
+
+            <div class="size-control">
+              <span>Số đích (n)</span>
+              <button type="button" id="n-minus">−</button>
+              <output id="n-value">3</output>
+              <button type="button" id="n-plus">+</button>
+            </div>
+          </div>
+
+          <h3>3. Ma trận chi phí, cung và cầu</h3>
+
+          <p class="hint">
+            Cột Cung ở bên trái, hàng Cầu ở phía trên.
+            Các giá trị ban đầu bằng 0.
+          </p>
+
+          <div class="table-scroll" id="input-table"></div>
+          <div class="totals" id="input-totals"></div>
+
+          <div id="input-error" class="alert error hidden" role="alert"></div>
+
+          <div class="actions">
+            <button id="btn-reset" class="btn-ghost" type="button">
+              Đặt lại về 0
+            </button>
+
+            <button id="btn-solve" class="btn-primary" type="button">
+              Giải bài toán →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-results" class="hidden">
+        <div class="results-head">
+          <button id="btn-back" type="button" class="btn-ghost">
+            ← Chỉnh dữ liệu
+          </button>
+
+          <div>
+            <p class="eyebrow">BƯỚC 02 · LỜI GIẢI CHI TIẾT</p>
+            <h2>Kết quả bài toán vận tải</h2>
+            <p id="result-subtitle"></p>
+          </div>
+        </div>
+
+        <nav id="result-nav" class="navsteps"></nav>
+        <div id="result-body"></div>
+
+        <div class="actions end-actions">
+          <button id="btn-another" class="btn-primary" type="button">
+            ← Giải bài khác
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Transport Solver · Công cụ học tập môn Tối ưu hóa
+    </footer>
+  </div>
+</body>
+</html>
